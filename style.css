@@ -1,0 +1,76 @@
+:root {
+    --cor-fundo: #fdf6ec;
+    --cor-caixa: #ffffff;
+    --cor-borda: #ffd580;
+    --cor-texto: #333;
+    --cor-topo: #ffb347;
+    --cor-menu: #ffcc70;
+    --cor-principal: #ffe7b3;
+    --cor-secundario: #fff2d8;
+    --cor-rodape: #ffda9e;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px 40px 1fr 40px;
+    grid-template-columns: 1fr 200px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.caixa {
+    background-color: var(--cor-caixa);
+    border: 2px solid var(--cor-borda);
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+#topo {
+    background-color: var(--cor-topo);
+    grid-area: 1 / 1 / 2 / -1;
+}
+
+#menu {
+    background-color: var(--cor-menu);
+    grid-area: 2 / 1 / 3 / -1;
+}
+
+#principal {
+    background-color: var(--cor-principal);
+    grid-area: 3 / 1 / -2 / 2;
+}
+
+#secundario {
+    background-color: var(--cor-secundario);
+    grid-area: 3 / -2 / -2 / -1;
+}
+
+#rodape {
+    background-color: var(--cor-rodape);
+    grid-area: -2 / 1 / -1 / -1;
+}
+
+@media (max-width: 600px) {
+    .container {
+        grid-template-rows: 80px 40px 1fr 1fr 40px;
+        grid-template-columns: 1fr;
+    }
+
+    #principal, #secundario {
+        grid-area: auto;
+    }
+
+    #secundario {
+        order: 1;
+    }
+}
